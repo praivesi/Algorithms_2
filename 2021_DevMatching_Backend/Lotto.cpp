@@ -19,12 +19,12 @@ vector<int> solution(vector<int> lottos, vector<int> win_nums) {
     int zeros = 0;
     bool matchFlag = false;
     vector<int> unmatched, matched;
-    for(int i = 0; i < 6; i++){
+    for(int i = 0; i < lottos.size(); i++){
         if(lottos[i] == 0){
             zeros++;
         }
         
-        for(int j = 0; j < 6; j++){
+        for(int j = 0; j < win_nums.size(); j++){
             if(win_nums[i] == lottos[j])
             {
                 matched.push_back(win_nums[i]);
