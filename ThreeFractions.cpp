@@ -10,17 +10,17 @@ public:
     vector<int> find(int, int, int, int);
 };
 
-int main(){
-    ThreeFractions* tf = new ThreeFractions();
-    vector<int> result = tf->find(1, 3, 2, 3);
+// int main(){
+//     ThreeFractions* tf = new ThreeFractions();
+//     vector<int> result = tf->find(1, 3, 2, 3);
     
-    for(int r : result){
-        cout << r << ", ";
-    }
-    cout << endl;
+//     for(int r : result){
+//         cout << r << ", ";
+//     }
+//     cout << endl;
 
-    return 0;
-}
+//     return 0;
+// }
 
 int getGcd(int a, int b) // 최대공약수
 {
