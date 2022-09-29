@@ -42,7 +42,7 @@ int main()
     enroll.push_back("emily");
     enroll.push_back("jaimie");
     enroll.push_back("tod");
-    enroll.push_back("tod");
+    enroll.push_back("young");
 
     referral.push_back("-");
     referral.push_back("-");
@@ -77,16 +77,12 @@ int main()
 vector<int> solution(vector<string> enroll, vector<string> referral, vector<string> seller, vector<int> amount)
 {
     vector<int> answer;
-
     vector<vector<Node>> hash(26);
-
-    for (int i = 0; i < 26; i++)
-    {
-        hash[i] = vector<Node>(512);
-    }
 
     for (int i = 0; i < enroll.size(); i++)
     {
+        cout << "enroll : " << enroll[i] << endl;
+
         Node n;
         n.name = enroll[i];
         n.referral = referral[i];
@@ -96,10 +92,11 @@ vector<int> solution(vector<string> enroll, vector<string> referral, vector<stri
         hash[enroll[i][0] - 'a'].push_back(n);
     }
 
-    for(vector<Node> v : hash){
-        for(Node& n : v){
-            if(n.name == "") {continue;}
-                cout << "default Node : name => " << n.name << ", referral => " << n.referral << ", earn => " << n.earn << ", x => " << n.x 
+    for (vector<Node> v : hash)
+    {
+        for (Node &n : v)
+        {
+            cout << "default Node : name => " << n.name << ", referral => " << n.referral << ", earn => " << n.earn << ", x => " << n.x
                  << ", y => " << n.y << ")" << endl;
         }
     }
@@ -129,7 +126,7 @@ vector<int> solution(vector<string> enroll, vector<string> referral, vector<stri
 
                 cout << "cur node: name => " << curNode.name << ", referral => " << curNode.referral << ", earn => " << curNode.earn << ")" << endl;
 
-                nextAmount = round(curAmount * 0.1);
+                nextAmount = (curAmount - curAmount % 10)  * 0.1;
                 
                 cout << "nextAmount: " << nextAmount << endl;
 
