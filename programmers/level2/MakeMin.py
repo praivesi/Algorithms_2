@@ -1,45 +1,16 @@
-usedA = [];
-usedB = [];
-
-finalMin = 987654321
-
-for i in range(1000):
-    usedA.append(False)
-    usedB.append(False)
-
-def solution(A,B):
-    global finalMin
-
-    recur(A, B, 0)
-
-    return finalMin
-
-
-
-def recur(A, B, min):
-    global finalMin
-
-    if len(A) and len(B):
-        finalMin = min if min < finalMin else finalMin
-        return
-
+def solution(A, B):
+    answer = 0
+    
+    A.sort()
+    B.sort(reverse=True)
+    
     for i in range(len(A)):
-        if(usedA[i]):
-            continue
+        answer += A[i] * B[i]
 
-        usedA[i] = True
+    return answer 
 
-        for j in range(len(B)):
-            if(usedB[j]):
-                continue
+a = [1,4,2]
+b = [5,4,4]
 
-            usedB[j] = True
-
-            recur(A, B, min + A[i] * B[j])
-        
-            usedB[j] = False
-
-        usedA[i] = False
-
-
-
+ans = solution(a, b)
+print('ans : ' + f'{ans}')
