@@ -13,20 +13,23 @@ def solution(s):
                 stack.append(arr[idx])
                 continue
 
+            if not stack:
+                stack.append(arr[idx])
+                continue
+
             if arr[idx] == ')':
-                if len(stack) != 0 and stack[-1] == '(': stack.pop(-1)
+                if stack[-1] == '(': stack.pop(-1)
                 else: stack.append(arr[idx])
 
             if arr[idx] == '}':
-                if len(stack) != 0 and stack[-1] == '{': stack.pop(-1)
+                if stack[-1] == '{': stack.pop(-1)
                 else: stack.append(arr[idx])
 
             if arr[idx] == ']':
-                if len(stack) != 0 and stack[-1] == '[': stack.pop(-1)
+                if stack[-1] == '[': stack.pop(-1)
                 else: stack.append(arr[idx])
 
-        if len(stack) == 0:
-            answer += 1        
+        if not stack: answer += 1
 
     return answer
 
