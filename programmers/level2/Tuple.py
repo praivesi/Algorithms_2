@@ -1,40 +1,31 @@
 def solution(s):
     answer = []
 
-    splits = s.split('},{')
-    sorted_splits = sorted(splits, key=len)
+    s = s.replace('{', '')
+    s = s.replace('}', '')
+    # print('s => ' + s)
 
-    used = []
+    ss = s.split(',')
+    # print('ss => ' + f'{ss}')
 
-    for i in range(100001):
-        used.append(False)
+    counts = []
+    for _ in range(100001):
+        counts.append(0)
 
-    num = 0
-    for j in range(len(sorted_splits)):
-        ss = list(sorted_splits[j])
-        print('ss => ' + f'{ss}')
+    for ns in ss:
+        counts[int(ns)] += 1
+    
+    d = {}
+    for i, c in enumerate(counts):
+        if c == 0: continue
+        d[i] = c
+    
+    sd = sorted(d.items(), key = lambda item: item[1], reverse = True)
+    # print('sd => ' + f'{sd}')
 
-        num = 0
-        for i in range(len(ss)):
-            if ss[i] == '{' or ss[i] == '}':
-                continue
-            elif ss[i] != ',':
-                num *= 10
-                num += int(ss[i])
-            else:
-                if used[num]:
-                    num = 0
-                    continue
-                
-                answer.append(num)
-                used[num] = True
-
-                num = 0
-
-        if num != 0 and used[num] == False:
-            answer.append(num)
-            used[num] = True
-        
+    for e in sd:
+        answer.append(e[0])
+    
     return answer
 
 s = "{{4,2,3},{3},{2,3,4,1},{2,3}}"
