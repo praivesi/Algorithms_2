@@ -32,7 +32,7 @@ def solution(str1, str2):
     
     jaccard = join / union
 
-    return math.floor(jaccard * 65536) 
+    return math.floor(jaccard * 65536)
 
 str1 = "E=M*C^2"
 str2 = "e=m*c^2"
