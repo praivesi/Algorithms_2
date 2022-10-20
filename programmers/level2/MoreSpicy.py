@@ -15,21 +15,27 @@ def solution(scoville, K):
     heappush(heap, min_s)
 
     while heap:
-        answer += 1
         first = heappop(heap)
+
+        if first >= K: 
+            return answer
+
+        if len(heap) == 0: 
+            heappush(heap, first)
+            break
+        
+        answer += 1
+
         second = heappop(heap)
         new_scov = first + second * 2
 
-        if new_scov >= K: break
-
         heappush(heap, new_scov)
-
-        if len(heap) == 1: break
     
-    if len(heap) <= 1:
-        answer = -1
+    first = heappop(heap)
+    if first >= K:
+        return answer
 
-    return answer
+    return -1
 
 scoville = [1, 2, 3, 9, 10, 12]
 K = 7
