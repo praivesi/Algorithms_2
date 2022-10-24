@@ -24,7 +24,6 @@ def solution(prices):
             
     return answer
 
-
 prices =  [2, 3, 1, 2, 3]
 ans = solution(prices)
 print(ans)
