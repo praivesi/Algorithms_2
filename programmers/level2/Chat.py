@@ -15,7 +15,6 @@ def solution(record):
             continue
         else: # Change
             change_d[split[1]] = split[2]
-            continue
             
         nic_d[split[1]] = split[2]
 
