@@ -9,6 +9,9 @@ def solution(record):
         split = r.split(' ')
 
         if split[0] == 'Enter':
+            if split[1] in change_d:
+                change_d[split[1]] = split[2]
+
             log.append(['들어왔습니다.', split[1]])
         elif split[0] == 'Leave':
             log.append(['나갔습니다.', split[1]])
@@ -18,8 +21,8 @@ def solution(record):
             
         nic_d[split[1]] = split[2]
 
-    for cd in change_d:
-        nic_d[cd[0]] = cd[1]
+    for k, v in change_d.items():
+        nic_d[k] = v
 
     for l in log:
         msg = nic_d[l[1]] + '님이 ' + l[0]
