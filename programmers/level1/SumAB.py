@@ -4,5 +4,4 @@ def solution(a, b):
         a = b
         b = swap    
 
-
     return sum(x for x in range(a, b + 1))
