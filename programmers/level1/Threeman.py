@@ -1,5 +1,9 @@
+import sys
+sys.setrecursionlimit(10**7)
+
 visited = []
 numbers = []
+
 
 def get_cnt(sum, curman, usedman):
 
