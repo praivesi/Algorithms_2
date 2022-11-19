@@ -4,6 +4,7 @@ def solution(arrayA, arrayB):
     bdiv = []
     bnotdiv = []
 
+    # TODO: use gcd()
     
     for cand in range(1, max(arrayA) + 1):
         dividable = False
